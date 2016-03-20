@@ -62,27 +62,25 @@ class BTRandomLanguageView: UIView {
             label.alpha = 1.0
             
             }, completion: { (finished: Bool) -> Void in
-                
-                // you can do this in a shorter, more concise way by setting the value to its opposite, NOT value
-                //self.removeRandomLabel(label)
                 self.removeRandomLabel(label)
         })
         
     }
     
     func getRandomPosition(label: UILabel){
-        // Find the button's width and height
+        // Get label width and height
         let labelWidth = label.frame.width
         let labelHeight = label.frame.height
-        // Find the width and height of the enclosing view
+
+        // Get view width and height
         let viewWidth = self.view.bounds.width
         let viewHeight = self.view.bounds.height
         
-        // Compute width and height of the area to contain the button's center
+        // Get total space
         let xwidth = viewWidth - labelWidth
         let yheight = viewHeight - labelHeight
         
-        // Generate a random x and y offset
+        // Randomly generate a x and y offset
         let xoffset = CGFloat(arc4random_uniform(UInt32(xwidth)))
         let yoffset = CGFloat(arc4random_uniform(UInt32(yheight/2 - 100)) + UInt32(yheight/2 + 120))
         
